@@ -1,30 +1,55 @@
 :root {
-    --theme: "🌙 Midnight";
-
     --bg: #0c0c0c;
-    --accent-bg: #5c5c5c13;
-    --darker-bg: #00000018;
+    --accent-bg: rgb(23, 23, 23);
+    --darker-bg: #000000;
     --text: #ffffff;
     --text-light: #ffffffd8;
-    --border: #ffffff00;
-    --accent: #7c70e7;
+    --border: #545454;
+    --accent: #cf70e7;
     --accent-light: #7270e777;
-    --code: #6b62f0;
+    --code: #ca62f0;
     --preformatted: #ccc;
-    --marked: #978cffa1;
+    --marked: #c58cffa1;
     --disabled: #111;
     --gradient-accent: linear-gradient(90deg, #6b62f0 0%, #7270e7 50%, #7c70e7 100%)
+}
+
+html, body, * {
+    transition: 0.3s;
+    outline: none;
+}
+
+*::selection {
+    color: var(--text) !important;
+    background-color: var(--marked) !important;
 }
 
 html {
     font-family: system-ui;
     scroll-behavior: smooth;
+    padding: 0;
+    margin: 0;
+}
+
+nav {
+    margin: 1rem;
 }
 
 body {
     color: var(--text);
     background-color: var(--bg);
-    margin: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+
+}
+
+main {
+    margin: 2rem;
 }
 
 /* Title */
@@ -34,15 +59,14 @@ h1 {
 }
 
 h1 a {
+    margin-left: 1rem;
     color: var(--text);
-    text-decoration: none;
 }
 
 /* Logo */
 h1 img {
     margin-bottom: -25px;
     height: 75px;
-    filter: brightness(2);
     transition: 1s;
 }
 
@@ -51,49 +75,163 @@ h1:hover {
 }
 
 h1 img:hover {
-    transform: rotate(360deg);
+    filter: hue-rotate(360deg);
 }
 
-/* Search field */
-#search {
-    color: var(--text);
-    border: 0;
-    padding: 1rem;
-    font-size: large;
-    background-color: var(--accent-bg);
-    border: none;
-    outline: none;
-    width: 80vw;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+h1 span {
+    margin-left: 1.5rem;
 }
 
 #search:hover {
-    opacity: 0.9;
+    opacity: 0.8;
+}
+
+#search input {
+    width: 90%;
+    font-size: larger;
+}
+
+#search i {
+    font-size: x-large;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#search, #search *, #search i {
+    border: none;
+    border-radius: 20px;
+
+    color: var(--text);
+    background-color: var(--accent-bg);
+}
+
+#search * {
+    padding: 1rem;
+}
+
+#search {
+    width: 96%;
+    font-size: large;
+    margin-bottom: 1rem;
+}
+
+#search form {
+    padding: 0;
+}
+
+#search button {
+    float: right;
+    margin-top: 15px;
+}
+
+#search button:hover,
+#search i:hover {
+    background-color: var(--accent);
+}
+
+#search button {
+    padding: 0;
+}
+
+#search button,
+#search i {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 /* Results */
-.result {
+div.results.grid {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 10px;
+    width: 95vw;
+}
+
+div.result {
     position: relative;
 }
 
-.result .duration {
+div.results.list div.result {
+    /* height: 500px; */
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div.result:hover {
+    opacity: 0.5;
+}
+
+div.result span.duration {
     color: white;
     padding: 0.5rem;
     border-radius: 5px;
     background-color: #000000cd;
     
     position: absolute;
-    bottom: 100px;
+    bottom: 150px;
     right: 10px;
-}
+}   
 
-.result a {
+div.result a {
     color: var(--text);
     text-decoration: none;
 }
 
-.thumbnail {
-    width: 93vw;
-    height: 235px;
+img.thumbnail {
+    width: 100%;
+}
+
+@media (max-width: 1400px) {
+    div.result span.duration {
+        bottom: 150px;
+    }
+
+    div.results.grid {
+        grid-template-columns: auto auto auto;
+    }
+}
+
+@media (max-width: 1000px) {
+    div.result span.duration {
+        bottom: 150px;
+    }
+
+    div.results.grid {
+        grid-template-columns: auto auto;
+    }
+}
+
+@media (max-width: 700px) {
+    div.result span.duration {
+        bottom: 130px;
+    }
+
+    div.results.grid {
+        display: block;
+    }
+
+    img.thumbnail {
+        width: 100%;
+    }
+}
+
+body>footer {
+    margin-top: 4rem;
+    padding: 2rem 1rem 1.5rem 1rem;
+    background-color: var(--accent-bg);
+    padding-left: 5rem;
+  }
+  
+  body>footer a {
+    color: var(--text);
+    text-decoration: underline;
+}
+
+/* List View Responsiveness */
+@media (min-width: 700px) {
+    div.results.list div.result img.thumbnail {
+        width: 600px;
+    }
 }

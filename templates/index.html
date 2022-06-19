@@ -1,14 +1,20 @@
-{% with title=query or 'Home' + ' · MUSE Search', query=query %}
+{% with 
+    title=title,
+    query=query
+%}
     {% include '_top.html' %}
 {% endwith %}    
-    {% for r in results %}
-    <div class="result">
-        <a href="/watch?v={{ r.id }}">
-            <img class="thumbnail" src="{{ r.thumbnails.0.url }}">
-            <span class="duration">{{ r.duration }}</span>
-            <h3>{{ r.title }}</h3>
-            <h5>{{ r.channel.name }} · {{ r.viewCount.short }} · {{ r.publishedTime }}</h5>
-        </a>
+    <div class="results {{ view }}">
+        {% for r in results %}
+        <div class="result">
+            <a href="/watch?v={{ r.id }}">
+                <!-- <span class="duration">{{ r.duration }}</span> -->
+                <img class="thumbnail" src="{{ r.thumbnails.0.url }}">
+                <h3>{{ r.duration }} · {{ r.title }}</h3>
+                <h5>{{ r.channel.name }} · {{ r.viewCount.short }} · {{ r.publishedTime or '✓' }}</h5>
+            </a>
+        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
+
 {% include '_end.html' %}
