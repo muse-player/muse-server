@@ -1,0 +1,15 @@
+{% with title=data.title + ' · MUSE Player' %}
+    {% include '_top.html' %}
+{% endwith %}
+    <img class="thumbnail" src="{{ data.thumbnails.3.url }}">
+    <h3>{{ data.title }}</h3>
+
+    <audio
+        style="width: 100%;"
+        controls
+        autoplay
+        src="{{ url }}">
+            Your browser does not support the
+            <code>audio</code> element.
+    </audio>
+{% include '_end.html' %}

@@ -1,0 +1,14 @@
+{% with title=query or 'Home' + ' · MUSE Search', query=query %}
+    {% include '_top.html' %}
+{% endwith %}    
+    {% for r in results %}
+    <div class="result">
+        <a href="/watch?v={{ r.id }}">
+            <img class="thumbnail" src="{{ r.thumbnails.0.url }}">
+            <span class="duration">{{ r.duration }}</span>
+            <h3>{{ r.title }}</h3>
+            <h5>{{ r.channel.name }} · {{ r.viewCount.short }} · {{ r.publishedTime }}</h5>
+        </a>
+    </div>
+    {% endfor %}
+{% include '_end.html' %}
