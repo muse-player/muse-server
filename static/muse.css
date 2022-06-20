@@ -161,6 +161,7 @@ div.results.grid div.result {
 div.results.list div.result {
     /* height: 500px; */
 
+    width: 300px;
     display: block;
     justify-content: center;
     align-items: center;
@@ -179,7 +180,15 @@ div.result span.duration {
     position: absolute;
     bottom: 150px;
     right: 10px;
-}   
+    z-index: 100;
+    /* right: 0.25em;
+    bottom: -0.75em; */
+}
+
+div.results.list div.result span.duration {
+    bottom: 100px;
+    /* right: -180px; */
+}
 
 div.result a {
     color: var(--text);
@@ -236,7 +245,7 @@ body>footer {
 
 /* List View Responsiveness */
 @media (min-width: 700px) {
-    div.results.list div.result img.thumbnail {
+    div.results.list div.result {
         width: 500px;
     }
 }
