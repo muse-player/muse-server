@@ -10,9 +10,9 @@
             <a href="/watch?v={{ r.id }}">
                 <!-- <span class="duration">{{ r.duration }}</span> -->
                 <img class="thumbnail" src="{{ r.thumbnails.0.url }}">
-                <h3>{{ r.duration }} · {{ r.title }}</h3>
-                <h5>{{ r.channel.name }} · {{ r.viewCount.short }} · {{ r.publishedTime or '✓' }}</h5>
+                <h3>{{ r.duration }} {{ r.title }}</h3>
             </a>
+                <h5>{{ r.channel.name }} · {{ r.viewCount.short }} · {{ r.publishedTime or '<i class="bi bi-patch-check-fill"></i>' | safe }}</h5>
         </div>
         {% endfor %}
     </div>

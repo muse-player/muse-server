@@ -11,16 +11,26 @@
     <link rel="stylesheet" href="/bi.css">
 </head>
 <body>
+    <form method="get" action="/search">
     <nav>
-        <h1><a href="/"><img src="/assets/logo.png"><span>MUSE</span></a></h1>
+        <h1>
+            <a href="/">
+                <img src="/assets/logo.png">
+                <span>MUSE</span>
+            </a>
+            <span style="font-weight: normal;">Show only official?</span>
+            <label class="switch">
+                <input type="checkbox" name="only-official" checked>
+                <span class="slider"></span>
+            </label>              
+        </h1>
     </nav>
 
     <main>
         <div id="search">
-            <form method="get" action="/search">
                 <input name="q" type="text" placeholder="Search..." value="{{ query }}" autofocus>
                 <button type="submit">
                     <i class="bi bi-search"></i>
                 </button>
-            </form>
-        </div>
+            </div>
+        </form>
