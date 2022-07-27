@@ -17,20 +17,19 @@
             <a href="/">
                 <img src="/assets/logo.png">
                 <span>MUSE</span>
+                <div class="gear">
+                    <a href="#options">
+                        <i class="bi bi-gear-wide"></i>
+                    </a>
+                </div>
             </a>
-            <span style="font-weight: normal;">Show only official?</span>
-            <label class="switch">
-                <input type="checkbox" name="only-official" checked>
-                <span class="slider"></span>
-            </label>              
         </h1>
     </nav>
 
     <main>
         <div id="search">
-                <input name="q" type="text" placeholder="Search..." value="{{ query }}" autofocus>
-                <button type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
-            </div>
-        </form>
+            <input name="q" type="text" placeholder="Search or drag & drop a video in here" value="{{ query }}" autofocus>
+            <button type="submit">
+                <i class="bi bi-search"></i>
+            </button>
+        </div>

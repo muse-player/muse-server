@@ -1,4 +1,5 @@
 flask
 yt-dlp
 pytube
+azlyrics
 youtube-search-python

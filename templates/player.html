@@ -12,4 +12,12 @@
             Your browser does not support the
             <code>audio</code> element.
     </audio>
+
+    <script src="https://genius.codes"></script> 
+
+    <div class="lyrics">
+        {% for line in lyrics %}
+            <p>{{ line }}</p>
+        {% endfor %}
+    </div>
 {% include '_end.html' %}

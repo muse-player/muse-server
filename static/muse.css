@@ -67,7 +67,7 @@ h1 a {
 h1 img {
     margin-bottom: -25px;
     height: 75px;
-    transition: 1s;
+    transition: 5s;
 }
 
 h1:hover {
@@ -75,11 +75,19 @@ h1:hover {
 }
 
 h1 img:hover {
-    filter: hue-rotate(360deg);
+    filter: hue-rotate(1000deg);
 }
 
 h1 span {
     margin-left: 1.5rem;
+}
+
+.gear {
+    font-size: larger;
+    float: right;
+    margin-top: 24px;
+    margin-right: 1rem;
+    transition: 3s;
 }
 
 #search:hover {
@@ -112,7 +120,7 @@ h1 span {
 #search {
     width: 96%;
     font-size: large;
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
 }
 
 #search form {
@@ -150,12 +158,26 @@ div.results.grid {
     align-items: start;
 }
 
+@keyframes resultAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+}
+
 div.result {
     position: relative;
+    animation: 0.5s ease-out 0s 1 resultAnimation;
 }
 
 div.results.grid div.result {
-    height: 100%;
+    height: 390px;
+}
+
+div.results.list {
+
 }
 
 div.results.list div.result {
@@ -198,6 +220,7 @@ div.result a {
 img.thumbnail {
     height: 250px;
     width: 100%;
+    border-radius: 7px;
     object-fit: cover;
 }
 
@@ -221,7 +244,7 @@ img.thumbnail {
     }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 500px) {
     div.result span.duration {
         bottom: 130px;
     }
@@ -229,16 +252,20 @@ img.thumbnail {
     div.results.grid {
         display: block;
     }
+
+    div.results.grid {
+        width: 100%;
+    }
 }
 
-body>footer {
+footer {
     margin-top: 4rem;
     padding: 2rem 1rem 1.5rem 1rem;
     background-color: var(--accent-bg);
     padding-left: 5rem;
-  }
+}
   
-  body>footer a {
+footer a {
     color: var(--text);
     text-decoration: underline;
 }
@@ -263,6 +290,10 @@ body>footer {
     height: 0;
 }
 
+.switch-label {
+    padding-top: 2rem;
+}
+
 .slider {
     position: absolute;
     cursor: pointer;
@@ -272,7 +303,7 @@ body>footer {
     bottom: 0;
     background-color: #ccc;
     transition: .4s;
-
+    width: 60px;
     border-radius: 34px;
 }
 
@@ -299,4 +330,19 @@ input:focus + .slider {
 
 input:checked + .slider:before {
     transform: translateX(26px);
+}
+
+div.no-results {
+    text-align: center;
+}
+
+@media (max-width: 630px) {
+    div.no-results,
+    div.no-results img {
+        width: 100%;
+    }
+}
+
+audio {
+    border-radius: 10px;
 }
